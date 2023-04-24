@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+Code+Latin&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+body {
+  background-color: #2d3436;
+  color: #fff;
+}
+code,
+code pre {
+  font-family: "M PLUS Code Latin", sans-serif;
+}
+header {
+  height: 70px;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 70px;
+  background-color: #ffffff2b;
+  position: sticky;
+  text-align: center;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(5px);
+  text-shadow: 0 0 10px #000;
+}
+.wrapper {
+  margin: 10px auto;
+  width: 90vw;
+  padding: 10px;
+  background-color: #0000005a;
+  border-radius: 5px;
+}
+p {
+  margin-top: 5px;
+  text-align: justify;
+}
+.intend {
+  text-indent: 50px;
+}
+h3 {
+  margin-top: 10px;
+  text-decoration: underline;
+}
+h1 {
+  text-align: center;
+}
+img#img1 {
+  width: 500px;
+  display: block;
+  margin: 10px auto;
+  object-fit: contain;
+}
+span {
+  font-weight: 700;
+}
+ul {
+  padding-left: 40px;
+}
+hr {
+  margin: 10px 0;
+}
+#cur {
+  margin-bottom: 70px;
+}
+nav {
+  height: 50px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 50px;
+  background-color: rgba(0, 255, 255, 0.178);
+  text-align: center;
+  backdrop-filter: blur(2px);
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+nav a {
+  display: block;
+  padding: 0 3px;
+  height: 30px;
+  line-height: 30px;
+  text-decoration: none;
+  color: #000;
+  transition: 0.3s;
+  background-color: transparent;
+  border-radius: 5px;
+  background-color: cyan;
+}
+nav a:hover {
+  transform: scale(1.1);
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 07 - task</title>
+    <link rel="stylesheet" href="./CSS/style.css" />
+  </head>
+  <body>
+    <header>Day seven - Task (by - Udhayasooriyan)</header>
+    <nav>
+      <a href="#asia">Filter Asia country</a>
+      <a href="#pop">Filter Population < 2 lakhs</a>
+      <a href="#foreach">ForEach function</a>
+      <a href="#reduce">Reduce function</a>
+      <a href="#cur">Display country uses USD</a>
+    </nav>
+    <div class="wrapper" id="asia">
+      <h1>
+        Get all the countries from the Asia continent /region using the Filter
+      </h1>
+      <h3>Code shown below :</h3>
+      <code>
+        <pre>
+
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              let asianCountries = data.filter((e) => {
+                if (e.continents[0] == "Asia") {
+                  return e;
+                }
+              });
+              console.log(asianCountries);
+            }
+        </pre>
+      </code>
+      <i
+        >Note:- above code already executed on the same page check in
+        console.log</i
+      >
+    </div>
+    <div class="wrapper" id="pop">
+      <h1>
+        Get all the countries with a population of less than 2 lakhs using
+        Filter function
+      </h1>
+      <h3>Code shown below :</h3>
+      <code>
+        <pre>
+
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              let Population = data.filter((e) => {
+                if (e.population < 200000) {
+                  return e;
+                }
+              });
+              console.log(Population);
+            }
+        </pre>
+      </code>
+      <i
+        >Note:- above code already executed on the same page check in
+        console.log</i
+      >
+    </div>
+    <div class="wrapper" id="foreach">
+      <h1>
+        Print the following details name, capital, flag using forEach function
+      </h1>
+      <h3>Code shown below :</h3>
+      <code>
+        <pre>
+
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              data.forEach((e) => {
+                console.log(`Country Name : ${e.name.common},
+                Country Capital : ${e.capital},
+                Country flag : ${e.flag}`);
+              });
+            }
+        </pre>
+      </code>
+      <i
+        >Note:- above code already executed on the same page check in
+        console.log</i
+      >
+    </div>
+    <div class="wrapper" id="reduce">
+      <h1>Print the total population of countries using reduce function</h1>
+      <h3>Code shown below :</h3>
+      <code>
+        <pre>
+
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              let totalPopulation = data
+                .map((e) => {
+                  return e.population;
+                })
+                .reduce((acc, cur) => acc += cur);
+              console.log("total population logged below using reduse");
+              console.log(totalPopulation);
+            }
+        </pre>
+      </code>
+      <i
+        >Note:- above code already executed on the same page check in
+        console.log</i
+      >
+    </div>
+    <div class="wrapper" id="cur">
+      <h1>Print the country which uses US Dollars as currency.</h1>
+      <h3>Code shown below :</h3>
+      <code>
+        <pre>
+            const req = new XMLHttpRequest();
+            req.open("GET", "https://restcountries.com/v3.1/all");
+            req.send();
+            req.addEventListener("load", request);
+            function request() {
+              let data = JSON.parse(this.responseText);
+              data.forEach((e) => {
+                if (e.currencies.USD) {
+                  console.log(e.name.common);
+                }
+              });
+            }
+        </pre>
+      </code>
+      <i
+        >Note:- above code already executed on the same page check in
+        console.log</i
+      >
+    </div>
+
+    <script>
+      const req = new XMLHttpRequest();
+      req.open("GET", "https://restcountries.com/v3.1/all");
+      req.send();
+      req.addEventListener("load", request);
+      function request() {
+        let data = JSON.parse(this.responseText);
+        // console.log(data);
+        let asianCountries = data.filter((e) => {
+          if (e.continents[0] == "Asia") {
+            return e;
+          }
+        });
+        let Population = data.filter((e) => {
+          if (e.population < 200000) {
+            return e;
+          }
+        });
+        let totalPopulation = data
+          .map((e) => {
+            return e.population;
+          })
+          .reduce((acc, cur) => (acc += cur));
+        console.log("All asian countries filter & logged below");
+        console.log(asianCountries);
+        console.log(
+          "All countries with a population of less than 2 lakhs Filtered & logged below"
+        );
+        console.log(Population);
+        console.log("All countries name, capital & flag logged below");
+        data.forEach((e) => {
+          console.log(`Country Name : ${e.name.common},
+          Country Capital : ${e.capital},
+          Country flag : ${e.flag}`);
+        });
+        console.log("total population logged below using reduse :");
+        console.log(totalPopulation);
+        console.log("countries using USD logged below :");
+        data.forEach((e) => {
+          if (e.currencies.USD) {
+            console.log(e.name.common);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
